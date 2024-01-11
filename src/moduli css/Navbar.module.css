@@ -1,0 +1,35 @@
+.contenitoreNavbar {
+    display: flex;
+    flex-direction: column;
+}
+
+.titolo {
+    align-self: center;
+    color: blue;
+}
+
+.secondaRiga {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contenitoreLink {
+    justify-content: space-around;
+    display: flex;
+    flex: 2;
+}
+
+.contenitoreButton {
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+}
+
+.selezionato {
+    color: red;
+}
+
+.nonSelezionato:hover {
+    color:yellow
+}
