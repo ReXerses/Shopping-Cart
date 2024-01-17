@@ -1,0 +1,27 @@
+.imgCollezione {
+    object-fit: cover;
+    object-position: top;
+    border-radius: 16px;
+    height: 600px;
+    width: clamp(300px, 55vw, 65rem);
+}
+
+.sloganCollezione {
+    text-align: center;
+}
+
+.linkSconto {
+    font-size: 1.5rem;
+    width: 100%;
+    text-align: center;
+    color: black;
+    background: linear-gradient(135deg, #f7454555 25%, transparent 25%) -8px 0/ 16px 16px, linear-gradient(225deg, #f74545 25%, transparent 25%) -8px 0/ 16px 16px, linear-gradient(315deg, #f7454555 25%, transparent 25%) 0px 0/ 16px 16px, linear-gradient(45deg, #f74545 25%, #e0e0e8 25%) 0px 0/ 16px 16px;
+}
+
+.collezione {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 0px;
+    width: 100%;
+    align-items: center;
+}

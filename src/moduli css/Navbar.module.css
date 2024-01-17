@@ -1,23 +1,60 @@
+@keyframes selezionato {
+    0%   {width: 56px;}
+    30%  {width: 66px;}
+    60%  {width: 70px;}
+    80%  {width: 76px;} 
+    100% {width: 56px;}
+}
+
 .contenitoreNavbar {
-    display: flex;
-    flex-direction: column;
-}
-
-.titolo {
-    align-self: center;
-    color: blue;
-}
-
-.secondaRiga {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: white;
+    padding: 1rem 0.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+
+.cercaBtn {
+    border-left: none;
+    width: 55px;
+    height: 38px;
+    border: none;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    cursor: pointer;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    background-image: url(public/cerca.svg);
+    background-size: 100% 100%;
+    filter: invert(1);
+}
+
+.cercaInput {
+    background-color: #bfbfbf40;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    padding: 8px;
+    height: 22px;
+    border: none;
+    color: rgb(0 0 0);
+    font-size: 1.0rem;
+    letter-spacing: 1px;
+}
+
+.form {
+    display: flex;
 }
 
 .contenitoreLink {
     justify-content: space-around;
     display: flex;
-    flex: 2;
+    flex: 1;
+    margin: 0;
+    list-style: none;
+    padding: 10px;
 }
 
 .contenitoreButton {
@@ -27,9 +64,30 @@
 }
 
 .selezionato {
-    color: red;
+    border-bottom: 3px solid black;
+    position: fixed;
+    text-align: center;
+    animation: selezionato 1s ease-in-out; /* Durata di 1 secondo, accelerazione iniziale ed esalazione */
+    animation-delay: 0.1s;
 }
 
 .nonSelezionato:hover {
-    color:yellow
+    letter-spacing: 0.3rem;
+}
+
+.logo {
+    height: 4rem;
+    width: 4rem;
+}
+
+.user {
+    background-image: url(public/user.svg);
+    background-size: 100% 100%;
+    background-color: white;
+}
+
+.cart {
+    background-image: url(public/cart.svg);
+    background-size: 100% 100%;
+    background-color: white;
 }
