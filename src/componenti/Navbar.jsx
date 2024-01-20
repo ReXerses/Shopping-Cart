@@ -85,7 +85,7 @@ const Navbar = () => {
 
                 ) : ( // viewport desktop
                     <nav className={styles.contenitoreNavbar}>
-                        <img src="public/logo.jpeg" alt="logo" className={styles.logo} />
+                        <img src="/logo.jpeg" alt="logo" className={styles.logo} />
 
                         <ul className={styles.contenitoreLink}>
                             <li>

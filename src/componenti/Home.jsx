@@ -18,7 +18,7 @@ function App() {
 
         </div>
 
-        <img className={HomeStyle.imgNuovaCollezione} src={isMobile ? '/src/media/nuovaCollezione/piccola.jpg' : '/src/media/nuovaCollezione/grande.jpg'} alt="donna in posa con un abito alla moda" />
+        <img className={HomeStyle.imgNuovaCollezione} src={isMobile ? '/media/nuovaCollezione/piccola.jpg' : '/media/nuovaCollezione/grande.jpg'} alt="donna in posa con un abito alla moda" />
 
       </div>
 

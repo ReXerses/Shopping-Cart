@@ -55,7 +55,7 @@
 }
 
 .prev {
-    background-image: url('src/media/Carosello/arrow-left-thick.svg');
+    background-image: url('/media/Carosello/arrow-left-thick.svg');
     height: 2.2rem;
     width: 3rem;
     background-size: 100% 100%;
@@ -64,7 +64,7 @@
 }
 
 .next {
-    background-image: url('src/media/Carosello/arrow-right-thick.svg');
+    background-image: url('/media/Carosello/arrow-right-thick.svg');
     height: 2.2rem;
     width: 3rem;
     background-size: 100% 100%;
