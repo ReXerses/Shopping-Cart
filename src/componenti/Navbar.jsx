@@ -114,7 +114,7 @@ const Navbar = () => {
 
             
         <div className="content">
-            <Outlet isMobile={isMobile}/>
+            <Outlet context={[isMobile]}/>
             {tornaInizioBtn && (
                 <button className={styles.tornaSuBtn} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}></button>
             )}

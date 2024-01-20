@@ -4,6 +4,12 @@
     100%{transform:translateX(0px)}
 }
 
+@keyframes slideTransition {
+    0% { opacity: 0; transform: translateX(-20px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+  
+
 .dot {
     width: 10px;
     height: 10px;
@@ -26,7 +32,11 @@
 .slide {
     object-fit: cover;
     height: clamp(400px, 72vh, 75rem);
-    width: 100%
+    width: 100%;
+}
+
+.slideTransition{
+    animation: slideTransition 1s ease;
 }
 
 .containerCarosello {

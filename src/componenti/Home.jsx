@@ -2,10 +2,10 @@ import { useState } from 'react'
 import Carosello from './Carosello'
 import Footer from './Footer'
 import HomeStyle from '/src/moduli css/Home.module.css'
-import { Link } from 'react-router-dom'
+import { Link, useOutletContext } from 'react-router-dom'
 
-function App({isMobile}) {
-
+function App() {
+  const [isMobile] = useOutletContext();
 
   return (// trasformare la prima parte in un componente a se.
     <>
@@ -25,7 +25,11 @@ function App({isMobile}) {
       <div className={HomeStyle.contenitorelinkSconto}>
         
         <Link to="/login" className={HomeStyle.linkSconto}>
-          <h2>Access our website to receive a 30% discount on your next purchase!</h2>
+          {isMobile ? (
+            <h2>Access our website to receive a 30% discount on your next purchase!</h2>
+          ) : (
+            <h2>・❥・ Access our website to receive a 30% discount on your next purchase! ・❥・</h2>
+          )}
         </Link>
 
       </div>
@@ -36,6 +40,18 @@ function App({isMobile}) {
         <Link to='/shop' className={HomeStyle.linkCategoria}>Jewelery</Link>
         <Link to='/shop' className={HomeStyle.linkCategoria}>Men's clothing</Link>
         <Link to='/shop' className={HomeStyle.linkCategoria}>Women's clothing</Link>
+      </div>
+
+      <div className={ isMobile ? HomeStyle.contenitoreNewsAppMobile : HomeStyle.contenitoreNewsApp}>
+        <div className={HomeStyle.box1}>
+          <h3 className={HomeStyle.h3}>Stay in the loop! Subscribe to our newsletter for the latest updates, exclusive offers, and a front-row seat to all the excitement.</h3>
+          <button className={HomeStyle.newsBtn}>SIGN &nbsp; UP</button>
+        </div>
+        <div className={HomeStyle.box2}>
+          <h3 className={HomeStyle.h3}>Download our app now and enjoy exclusive discounts that will make you scream with joy!</h3>
+          <button className={HomeStyle.android}></button>
+          <button className={HomeStyle.apple}></button>
+        </div>
       </div>
 
       <Footer />

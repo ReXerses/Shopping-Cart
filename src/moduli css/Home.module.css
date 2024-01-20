@@ -95,3 +95,75 @@
     text-align: center;
     border-radius: 1rem;
 }
+
+.contenitoreNewsApp {
+    display: flex;
+    width: 100%;
+}
+
+.box {
+    flex: 1;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0rem;
+    width: 100%;
+    row-gap: 1.2rem;
+    text-align: center;
+    font-size: clamp(11px, 1.2vw, 2rem);
+    justify-content: center;
+}
+
+.box1 {
+    composes: box;
+    background: linear-gradient(270deg, #6e0916, #c90d0de6);
+    background-size: 400% 400%;
+    animation: gradient 16s ease infinite;
+}
+
+.box2 {
+    composes: box;
+    background: linear-gradient(270deg, #c90d0de6 , #6e0916);
+    background-size: 400% 400%;
+    animation: gradient 16s ease infinite;
+}
+
+.contenitoreNewsAppMobile {
+    composes: contenitoreNewsApp;
+    flex-direction: column;
+}
+
+.appDownload {
+    width: clamp(165px, 10vw, 13rem);
+    height: 4rem;
+    background-color: #7fffd400;
+}
+
+.android {
+    composes: appDownload;
+    background-image: url(/android.png);
+    background-size: 100% 100%;
+}
+
+.apple {
+    composes: appDownload;
+    background-image: url(/apple.png);
+    background-size: 100% 100%;
+}
+
+.h3 {
+    padding: 1rem;
+    margin: 0;
+}
+
+.newsBtn {
+    background-color: #000000;
+    padding: 0.6rem;
+    border-radius: 0.5rem;
+    width: 10rem;
+    align-self: center;
+    color: white;
+    font-weight: 800;
+}
+
