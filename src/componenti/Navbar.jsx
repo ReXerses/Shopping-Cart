@@ -10,6 +10,8 @@ const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState (false);
     const [isSearchBar, setIsSearchBar] = useState (false);
 
+    const [tornaInizioBtn, setTornaInizioBtn] = useState(false);
+
     useEffect(() => {
         const handleResize = () => {
             setIsMobile(window.innerWidth < 850);
@@ -21,6 +23,21 @@ const Navbar = () => {
         // Elimino il listener quando il componente viene smontato
         return () => {
         window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    useEffect(() => {
+        const handleScroll = () => {
+          const scrollY = window.scrollY;
+      
+          setTornaInizioBtn(scrollY > 200); // Se il valore dello scroll è maggiore di 200, attivo il button
+        };
+      
+        window.addEventListener('scroll', handleScroll);
+      
+        // Elimino il listener quando il componente viene smontato
+        return () => {
+          window.removeEventListener('scroll', handleScroll);
         };
     }, []);
 
@@ -98,6 +115,9 @@ const Navbar = () => {
             
         <div className="content">
             <Outlet isMobile={isMobile}/>
+            {tornaInizioBtn && (
+                <button className={styles.tornaSuBtn} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}></button>
+            )}
         </div>
     </div>
 

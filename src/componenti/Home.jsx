@@ -31,11 +31,13 @@ function App({isMobile}) {
       </div>
 
       <Carosello />
-
-      <div className={HomeStyle.collezione}>
-        <img src="src/media/cortina.jpeg" alt="collezione inverno- cortina" className={HomeStyle.imgCollezione}/>
-        <h3 className={HomeStyle.sloganCollezione}>Nuova collezione in mostra a Cortina</h3>
+      <div className={HomeStyle.contenitoreCategorie}>
+        <Link to='/shop' className={HomeStyle.linkCategoria}>Electronics</Link>
+        <Link to='/shop' className={HomeStyle.linkCategoria}>Jewelery</Link>
+        <Link to='/shop' className={HomeStyle.linkCategoria}>Men's clothing</Link>
+        <Link to='/shop' className={HomeStyle.linkCategoria}>Women's clothing</Link>
       </div>
+
       <Footer />
     </>
   )

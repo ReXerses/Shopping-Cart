@@ -102,8 +102,8 @@
 .icone {
     background-size: 100% 100%;
     background-color: white;
-    height: 2rem;
-    width: 2rem;
+    height: 2.5rem;
+    width: 2.5rem;
 }
 
 .user {
@@ -138,8 +138,6 @@
     margin-bottom: 1rem;
 }
 
-
-
 .menuAperto {
     composes: icone;
     background-image: url(/menu-open.svg);
@@ -153,4 +151,14 @@
 .searchBar {
     composes: icone;
     background-image: url(/cerca.svg);
+}
+
+.tornaSuBtn {
+    composes: icone;
+    background-image: url(/up.svg);
+    position: fixed;
+    z-index: 100;
+    bottom: 25px;
+    right: 25px;
+    filter: invert(1);
 }

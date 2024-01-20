@@ -76,3 +76,22 @@
     color: white;
     font-weight: 800;
 }
+
+.contenitoreCategorie {
+    padding: 2rem 0px;
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 1rem;
+}
+
+.linkCategoria {
+    padding: 1rem;
+    background: black;
+    color: white;
+    width: 10rem;
+    text-align: center;
+    border-radius: 1rem;
+}
