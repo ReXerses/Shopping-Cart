@@ -1,15 +1,22 @@
+@keyframes selectedDot {
+    0%{transform:translateX(-10px)}
+    50%{transform:translateX( 10px)}
+    100%{transform:translateX(0px)}
+}
+
 .dot {
-    width: 30px;
+    width: 10px;
     height: 10px;
     border-radius: 32px;
-    background: #ffffff;
+    background: #000000;
     cursor: pointer;
 }
 
 .active {
     composes : dot;
-    background: #b38c17;
-    transform: scale(1.6);
+    background: #c90d0de6;
+    transform: scale(1.5);
+    animation: selectedDot 1s ease-in-out;
 }
 
 .dots {
@@ -18,10 +25,8 @@
 
 .slide {
     object-fit: cover;
-    object-position: top;
-    border-radius: 16px;
-    height: 400px;
-    width: clamp(300px, 50vw, 60rem);
+    height: clamp(400px, 72vh, 75rem);
+    width: 100%
 }
 
 .containerCarosello {
@@ -29,8 +34,6 @@
     flex-direction: column;
     row-gap: 1rem;
     width: 100%;
-    background-color: #19081c;
-    padding: 2rem 0px;
     align-items: center;
 }
 
@@ -38,7 +41,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: clamp(300px, 30vw, 40rem);
+    width: clamp(300px, 55vw, 65rem);
 }
 
 .prev {
@@ -47,7 +50,6 @@
     width: 3rem;
     background-size: 100% 100%;
     background-color: #ffffff00;
-    filter: invert(1);
     border: none;
 }
 
@@ -57,7 +59,6 @@
     width: 3rem;
     background-size: 100% 100%;
     background-color: #ffffff00;
-    filter: invert(1);
     border: none;
 }
 
@@ -65,3 +66,6 @@
     transform: scale(1.2);
 }
 
+.carosello {
+    width: 100%;
+}

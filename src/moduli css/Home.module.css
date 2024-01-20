@@ -1,3 +1,9 @@
+@keyframes gradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
 .imgCollezione {
     object-fit: cover;
     object-position: top;
@@ -10,12 +16,20 @@
     text-align: center;
 }
 
-.linkSconto {
+.contenitorelinkSconto {
     font-size: 1.5rem;
+    display: flex;
     width: 100%;
+}
+
+.linkSconto {
+    background: linear-gradient(270deg, #6e0916, #c90d0de6);
+    background-size: 400% 400%;
+    animation: gradient 16s ease infinite;
     text-align: center;
-    color: black;
-    background: linear-gradient(135deg, #f7454555 25%, transparent 25%) -8px 0/ 16px 16px, linear-gradient(225deg, #f74545 25%, transparent 25%) -8px 0/ 16px 16px, linear-gradient(315deg, #f7454555 25%, transparent 25%) 0px 0/ 16px 16px, linear-gradient(45deg, #f74545 25%, #e0e0e8 25%) 0px 0/ 16px 16px;
+    flex: 1;
+    color: white;
+    font-size: clamp(11px, 1.2vw, 2rem);
 }
 
 .collezione {
@@ -24,4 +38,41 @@
     padding: 2rem 0px;
     width: 100%;
     align-items: center;
+}
+
+.nuovaCollezione {
+    display: flex;
+    padding: 2rem 0;
+    align-items: center;
+}
+
+.contenitoreShopNow {
+    position: absolute;
+    padding: 1rem;
+    background-color: #ffffff5c;
+    font-size: clamp(10px,1vw,3rem);
+    border-bottom-right-radius: 1rem;
+    border-top-right-radius: 1rem;
+    backdrop-filter: blur(5.3px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.imgNuovaCollezione {
+    aspect-ratio: 7/4;
+    object-fit: cover;
+    border-radius: 1rem;
+    width: 100%;
+}
+
+.collezioneLinkShop {
+    background-color: #c90d0de6;
+    padding: 0.6rem;
+    border-radius: 0.5rem;
+    width: 100%;
+    align-self: center;
+    text-align: center;
+    color: white;
+    font-weight: 800;
 }

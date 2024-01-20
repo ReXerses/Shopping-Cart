@@ -6,6 +6,18 @@
     100% {width: 56px;}
 }
 
+@keyframes bounce {
+    0% {
+        transform: scaleY(0);
+    }
+    70% {
+        transform: scaleY(1.1);
+    }
+    100% {
+        transform: scaleY(1);
+    }
+}
+
 .contenitoreNavbar {
     display: flex;
     justify-content: space-between;
@@ -27,9 +39,10 @@
     cursor: pointer;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
-    background-image: url(public/cerca.svg);
+    background-image: url(/cerca.svg);
     background-size: 100% 100%;
     filter: invert(1);
+    background-color: #30f6ff;
 }
 
 .cercaInput {
@@ -40,8 +53,8 @@
     height: 22px;
     border: none;
     color: rgb(0 0 0);
-    font-size: 1.0rem;
     letter-spacing: 1px;
+    width: 100%;
 }
 
 .form {
@@ -53,14 +66,16 @@
     display: flex;
     flex: 1;
     margin: 0;
-    list-style: none;
+    list-style: circle;
     padding: 10px;
+    color: white;
 }
 
 .contenitoreButton {
     display: flex;
     flex: 1;
     justify-content: space-around;
+    align-items: center;
 }
 
 .selezionato {
@@ -69,6 +84,10 @@
     text-align: center;
     animation: selezionato 1s ease-in-out; /* Durata di 1 secondo, accelerazione iniziale ed esalazione */
     animation-delay: 0.1s;
+}
+
+.nonSelezionato{
+    position: fixed;
 }
 
 .nonSelezionato:hover {
@@ -80,14 +99,58 @@
     width: 4rem;
 }
 
-.user {
-    background-image: url(public/user.svg);
+.icone {
     background-size: 100% 100%;
     background-color: white;
+    height: 2rem;
+    width: 2rem;
+}
+
+.user {
+    composes: icone;
+    background-image: url(/user.svg);
 }
 
 .cart {
-    background-image: url(public/cart.svg);
-    background-size: 100% 100%;
+    composes: icone;
+    background-image: url(/cart.svg);
+}
+
+.menuVisibile {
+    animation: bounce 500ms ease-in-out;
+    transform-origin: top;
+    color: white;
+}
+
+.contenitoreNavbarMobile {
+    display: flex;
+    justify-content: space-between;
     background-color: white;
+    padding: 1rem 0.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.elementoLista {
+    margin-bottom: 1rem;
+}
+
+
+
+.menuAperto {
+    composes: icone;
+    background-image: url(/menu-open.svg);
+}
+
+.menuChiuso {
+    composes: icone;
+    background-image: url(/menu.svg);
+}
+
+.searchBar {
+    composes: icone;
+    background-image: url(/cerca.svg);
 }
