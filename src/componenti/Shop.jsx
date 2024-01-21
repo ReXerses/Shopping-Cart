@@ -1,10 +1,13 @@
-import Navbar from "./Navbar"
+import Footer from "./Footer";
 
 const Shop = () => {
     return (
-        <div>
-            <h2>bngwsfgneg</h2>
-        </div>
+        <>
+            <div>
+                <h2>bngwsfgneg</h2>
+            </div>
+            <Footer />
+        </>
     )
 }
 

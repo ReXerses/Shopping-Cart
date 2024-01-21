@@ -1,11 +1,12 @@
-import { useState } from 'react'
+import { useContext } from 'react'
 import Carosello from './Carosello'
 import Footer from './Footer'
 import HomeStyle from '/src/moduli css/Home.module.css'
-import { Link, useOutletContext } from 'react-router-dom'
+import { AppContext } from './Navbar'
+import { Link } from 'react-router-dom'
 
 function App() {
-  const [isMobile] = useOutletContext();
+  const { isMobile, isLogged} = useContext(AppContext);
 
   return (// trasformare la prima parte in un componente a se.
     <>
@@ -24,13 +25,16 @@ function App() {
 
       <div className={HomeStyle.contenitorelinkSconto}>
         
-        <Link to="/login" className={HomeStyle.linkSconto}>
-          {isMobile ? (
-            <h2>Access our website to receive a 30% discount on your next purchase!</h2>
-          ) : (
+        {isLogged ? (
+          <div className={HomeStyle.linkSconto}>
+            <h2 >・❥・ You are eligible to receive 30% off your next purchase! ・❥・</h2>
+          </div>
+        ) :
+          <Link to="/login" className={HomeStyle.linkSconto}>
             <h2>・❥・ Access our website to receive a 30% discount on your next purchase! ・❥・</h2>
-          )}
-        </Link>
+          </Link>
+        }
+        
 
       </div>
 

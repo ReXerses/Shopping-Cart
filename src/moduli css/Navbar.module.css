@@ -162,3 +162,51 @@
     right: 25px;
     filter: invert(1);
 }
+
+.menuVisibileUser {
+    animation: bounce 500ms ease-in-out;
+    transform-origin: top;
+    background-color: #0000009c;
+    padding: 2rem 1rem;
+    border-top-right-radius: 2rem 5rem;
+    font-size: clamp(14px,1.5vw,4rem);
+    border-bottom-right-radius: 2rem 5rem;
+    border-bottom-left-radius: 2rem 5rem;
+    backdrop-filter: blur(5.3px);
+}
+
+.ulUser {
+    list-style: none;
+    padding: 0.5rem;
+    margin: 0rem;
+}
+
+.userMenuDesktop {
+    composes: menuVisibileUser;
+    position: absolute;
+    top: 100%;
+}
+
+.userMenuMobile {
+    composes: menuVisibileUser;
+    position: absolute;
+    top: 100%;
+}
+
+.liUserMenu {
+    cursor: pointer;
+    color: white;
+    padding: 0.3rem;
+}
+
+.liName {
+    composes: liUserMenu;
+    border-bottom: 2px solid white;
+}
+
+.liBtn {
+    padding: 0px;
+    color: white;
+    background: none;
+    outline: none;
+}

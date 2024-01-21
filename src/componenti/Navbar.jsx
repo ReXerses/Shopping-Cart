@@ -1,16 +1,23 @@
-import React from "react"
-import { Link, Outlet, useLocation } from "react-router-dom"
+import React, { createContext } from "react"
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom"
 import styles from '/src/moduli css/Navbar.module.css';
 import { useState, useEffect } from "react";
 
+export const AppContext = createContext();
 const Navbar = () => {
     const location = useLocation();
 
     const [isMobile, setIsMobile] = useState(window.innerWidth < 850);
     const [isMenuOpen, setIsMenuOpen] = useState (false);
     const [isSearchBar, setIsSearchBar] = useState (false);
+    const [isUserOpen, setIsUserOpen] = useState (false);
+    const [isLogged, setIsLogged] = useState(false);
 
     const [tornaInizioBtn, setTornaInizioBtn] = useState(false);
+
+    const [userName, setUserName] =useState('');
+
+    const Navigate = useNavigate();
 
     useEffect(() => {
         const handleResize = () => {
@@ -41,7 +48,27 @@ const Navbar = () => {
         };
     }, []);
 
+
+    const gestisciAperturaMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+        setIsSearchBar(false);
+        setIsUserOpen(false);
+    }
+
+    const gestisciAperturaSearchBar = () => {
+        setIsSearchBar(!isSearchBar);
+        setIsMenuOpen(false);
+        setIsUserOpen(false);
+    }
+
+    const gestisciAperturaUser = () => {
+        setIsUserOpen(!isUserOpen);
+        setIsMenuOpen(false);
+        setIsSearchBar(false);
+    }
+
     return (
+        <AppContext.Provider value={{ isMobile, isLogged, setIsLogged, setUserName }}>
         <div className="paginaIntera">
 
 
@@ -49,11 +76,24 @@ const Navbar = () => {
                     <nav className={styles.contenitoreNavbarMobile}>
                     
                             <div className={styles.contenitoreButton}>
-                                <button className={ isMenuOpen ? styles.menuAperto : styles.menuChiuso} onClick={() => {setIsMenuOpen(!isMenuOpen); setIsSearchBar(false)}}></button>
-                                <button className={ styles.searchBar} onClick={() => {setIsSearchBar(!isSearchBar); setIsMenuOpen(false)}}></button>
+                                <button className={ isMenuOpen ? styles.menuAperto : styles.menuChiuso} onClick={gestisciAperturaMenu}></button>
+                                <button className={ styles.searchBar} onClick={gestisciAperturaSearchBar}></button>
 
-                                
-                                <button className={styles.user}></button>
+                                <div>
+                                    <button className={styles.user} onClick={() => (isLogged) ? gestisciAperturaUser() : Navigate('/login')}></button>
+                                    {isUserOpen && (
+                                            <div className={`${styles.form} ${styles.userMenuMobile}`}>
+                                                <ul className={styles.ulUser}>
+                                                    <li className={styles.liName}>Hello <span style={{ color: '#ffef5e' }}>{userName}</span>,</li>
+                                                    <li className={styles.liUserMenu}>Your Profile</li>
+                                                    <li className={styles.liUserMenu}>Settings</li>
+                                                    <li className={styles.liUserMenu}>Privacy</li>
+                                                    <li className={styles.liUserMenu}><button className={styles.liBtn} onClick={() => {setIsLogged(!isLogged); setIsUserOpen(false)}}>Logout</button></li>
+                                                </ul>
+                                            </div>
+                                        )}
+                                </div>
+
                                 <button className={styles.cart}></button>
                             </div>
 
@@ -80,6 +120,7 @@ const Navbar = () => {
                                     </form>
                             )}
 
+    
                            
                         </nav>
 
@@ -105,21 +146,38 @@ const Navbar = () => {
                                 <button type="submit" className={styles.cercaBtn}></button>
                             </form>
 
-                            <button className={styles.user}></button>
+                            <div>
+                                    <button className={styles.user} onClick={() => (isLogged) ? gestisciAperturaUser() : Navigate('/login')}></button>
+
+                                    {isUserOpen && (
+                                            <div className={`${styles.form} ${styles.userMenuMobile}`}>
+                                                <ul className={styles.ulUser}>
+                                                    <li className={styles.liName}>Hello <span style={{ color: '#ffef5e' }}>{userName}</span>,</li>
+                                                    <li className={styles.liUserMenu}>Your Profile</li>
+                                                    <li className={styles.liUserMenu}>Settings</li>
+                                                    <li className={styles.liUserMenu}>Privacy</li>
+                                                    <li className={styles.liUserMenu}><button className={styles.liBtn} onClick={() => {setIsLogged(!isLogged); setIsUserOpen(false)}}>Logout</button></li>
+                                                </ul>
+                                            </div>
+                                    )}
+                            </div>
+
                             <button className={styles.cart}></button>
                         </div>
+                        
                     </nav>
                 )}
 
 
             
         <div className="content">
-            <Outlet context={[isMobile]}/>
+            <Outlet context={[isMobile,isLogged,setIsLogged]}/>
             {tornaInizioBtn && (
                 <button className={styles.tornaSuBtn} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}></button>
             )}
         </div>
     </div>
+    </AppContext.Provider>
 
     );
 }

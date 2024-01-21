@@ -6,6 +6,7 @@ import Shop from "./componenti/Shop";
 import ErrorPage from "./componenti/ErrorPage";
 import { Children } from "react";
 import OurBrand from "./componenti/OurBrand";
+import LoginPage from "./componenti/LoginPage";
 
 const Router = () => {
     const router = createBrowserRouter ([
@@ -17,6 +18,7 @@ const Router = () => {
                 {index : true, element: <Home/>},
                 {path:'/shop', element: <Shop /> },
                 {path:'/ourBrand', element: <OurBrand /> },
+                {path:'/login', element: <LoginPage /> },
             ]
         },
     ]);
