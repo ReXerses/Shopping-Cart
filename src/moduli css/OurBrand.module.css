@@ -1,0 +1,49 @@
+.sezione {
+    aspect-ratio: 9/3;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex: 1;
+}
+
+.primaParte {
+    composes : sezione;
+    background-image: url(/media/OurBrand/you.jpg);
+    background-position: 50% 5%;
+}
+
+.secondaParte {
+    composes : sezione;
+    background-image: url(/media/OurBrand/we.jpg);
+    background-position: 50% 50%;
+    justify-content: flex-end;
+}
+
+.modale {
+    background-color: #00000069;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    min-width: 25vw;
+    max-width: 100%;
+    color: white;
+    align-items: center;
+    backdrop-filter: blur(2px);
+}
+
+.h2 {
+    font-size: 3rem;
+    color: #FFEB3B;
+}
+
+.h3 {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.spanFrasi {
+    font-size: 1.2rem;
+    padding: 0.5rem 0px;
+    text-align: center;
+}
