@@ -4,6 +4,7 @@ import styles from '/src/moduli css/Navbar.module.css';
 import { useState, useEffect } from "react";
 
 export const AppContext = createContext();
+
 const Navbar = () => {
     const location = useLocation();
 
@@ -15,7 +16,9 @@ const Navbar = () => {
 
     const [tornaInizioBtn, setTornaInizioBtn] = useState(false);
 
-    const [userName, setUserName] =useState('');
+    const [userName, setUserName] = useState('');
+    const [ricerca, setRicerca] = useState('');
+    const [categoria, setCategoria] = useState('');
 
     const Navigate = useNavigate();
 
@@ -67,8 +70,16 @@ const Navbar = () => {
         setIsSearchBar(false);
     }
 
+    const gestisciSubmit = (event) => {
+        console.log(event)
+        event.preventDefault(); // Impedisce il comportamento predefinito del form (ricarica la pagina)
+        setCategoria('');
+        setRicerca(event.target[0].value);
+        Navigate('/shop');
+    };
+
     return (
-        <AppContext.Provider value={{ isMobile, isLogged, setIsLogged, setUserName }}>
+        <AppContext.Provider value={{ isMobile, isLogged, ricerca, categoria, setIsLogged, setUserName, setRicerca, setCategoria }}>
         <div className="paginaIntera">
 
 
@@ -114,9 +125,9 @@ const Navbar = () => {
                             )}
 
                             {isSearchBar && (
-                                    <form action="" method="get" className={`${styles.form} ${styles.menuVisibile}`}>
+                                    <form action="" method="get" className={`${styles.form} ${styles.menuVisibile}`} onSubmit={gestisciSubmit}>
                                         <input type="text" name="search" id="search" className={styles.cercaInput}/>
-                                        <button type="submit" className={styles.cercaBtn}></button>
+                                        <button  className={styles.cercaBtn}></button>
                                     </form>
                             )}
 
@@ -141,9 +152,9 @@ const Navbar = () => {
                         </ul>
 
                         <div className={styles.contenitoreButton}>
-                            <form action="" method="get" className={styles.form}>
-                                <input type="text" name="search" id="search" className={styles.cercaInput}/>
-                                <button type="submit" className={styles.cercaBtn}></button>
+                            <form action="" method="get" className={styles.form} onSubmit={gestisciSubmit}>
+                                <input type="text" name="search" id="search" className={styles.cercaInput} required/>
+                                <button  className={styles.cercaBtn} ></button>
                             </form>
 
                             <div>
@@ -171,7 +182,7 @@ const Navbar = () => {
 
             
         <div className="content">
-            <Outlet context={[isMobile,isLogged,setIsLogged]}/>
+            <Outlet />
             {tornaInizioBtn && (
                 <button className={styles.tornaSuBtn} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}></button>
             )}

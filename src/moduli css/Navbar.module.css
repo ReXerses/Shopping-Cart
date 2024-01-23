@@ -158,8 +158,8 @@
     background-image: url(/up.svg);
     position: fixed;
     z-index: 100;
-    bottom: 25px;
-    right: 25px;
+    bottom: 10px;
+    right: 10px;
     filter: invert(1);
 }
 

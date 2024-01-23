@@ -6,7 +6,7 @@ import { AppContext } from './Navbar'
 import { Link } from 'react-router-dom'
 
 function App() {
-  const { isMobile, isLogged} = useContext(AppContext);
+  const { isMobile, isLogged, setCategoria} = useContext(AppContext);
 
   return (// trasformare la prima parte in un componente a se.
     <>
@@ -40,10 +40,10 @@ function App() {
 
       <Carosello />
       <div className={HomeStyle.contenitoreCategorie}>
-        <Link to='/shop' className={HomeStyle.linkCategoria}>Electronics</Link>
-        <Link to='/shop' className={HomeStyle.linkCategoria}>Jewelery</Link>
-        <Link to='/shop' className={HomeStyle.linkCategoria}>Men's clothing</Link>
-        <Link to='/shop' className={HomeStyle.linkCategoria}>Women's clothing</Link>
+        <Link onClick={()=> setCategoria('category/electronics')} to='/shop' className={HomeStyle.linkCategoria}>Electronics</Link>
+        <Link onClick={()=> setCategoria('category/jewelery')} to='/shop' className={HomeStyle.linkCategoria}>Jewelery</Link>
+        <Link onClick={()=> setCategoria(`category/men's clothing`)} to='/shop' className={HomeStyle.linkCategoria}>Men's clothing</Link>
+        <Link onClick={()=> setCategoria(`category/women's clothing`)} to='/shop' className={HomeStyle.linkCategoria}>Women's clothing</Link>
       </div>
 
       <div className={ isMobile ? HomeStyle.contenitoreNewsAppMobile : HomeStyle.contenitoreNewsApp}>
@@ -53,8 +53,10 @@ function App() {
         </div>
         <div className={HomeStyle.box2}>
           <h3 className={HomeStyle.h3}>Download our app now and enjoy exclusive discounts that will make you scream with joy!</h3>
+          <div>
           <button className={HomeStyle.android}></button>
           <button className={HomeStyle.apple}></button>
+          </div>
         </div>
       </div>
 

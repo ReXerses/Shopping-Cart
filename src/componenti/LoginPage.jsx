@@ -9,7 +9,6 @@ const LoginPage = () => {
     const Navigate = useNavigate();
 
     const handleSubmit = (event) => {
-        console.log(event)
         event.preventDefault(); // Impedisce il comportamento predefinito del form (ricarica la pagina)
         setUserName(event.target[0].value);
         setIsLogged(true);
