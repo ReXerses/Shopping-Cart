@@ -126,7 +126,7 @@ const Navbar = () => {
 
                             {isSearchBar && (
                                     <form action="" method="get" className={`${styles.form} ${styles.menuVisibile}`} onSubmit={gestisciSubmit}>
-                                        <input type="text" name="search" id="search" className={styles.cercaInput}/>
+                                        <input type="text" name="search" id="search" className={styles.cercaInput} placeholder="backpack" autoComplete="off"/>
                                         <button  className={styles.cercaBtn}></button>
                                     </form>
                             )}
@@ -153,7 +153,7 @@ const Navbar = () => {
 
                         <div className={styles.contenitoreButton}>
                             <form action="" method="get" className={styles.form} onSubmit={gestisciSubmit}>
-                                <input type="text" name="search" id="search" className={styles.cercaInput} required/>
+                                <input type="text" name="search" id="search" className={styles.cercaInput} required placeholder="backpack" autoComplete="off"/>
                                 <button  className={styles.cercaBtn} ></button>
                             </form>
 

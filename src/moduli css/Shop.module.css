@@ -1,0 +1,36 @@
+.contenitorelinkSconto {
+    font-size: 1.5rem;
+    display: flex;
+    width: 100%;
+}
+
+.linkSconto {
+    background: linear-gradient(270deg, #6e0916, #c90d0de6);
+    background-size: 400% 400%;
+    animation: gradient 16s ease infinite;
+    text-align: center;
+    flex: 1;
+    color: white;
+    font-size: clamp(11px, 1.2vw, 2rem);
+}
+
+.contenitoreShop {
+    display: flex;
+    width: 100%;
+    flex: 1;
+    flex-wrap: wrap;
+}
+
+.sideBar {
+    flex: 1;
+    background-color: #fbd1d1;
+}
+
+.contenuto {
+    flex: 4;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+    gap: 1rem;
+    justify-content: space-around;
+}

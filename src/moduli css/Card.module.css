@@ -1,0 +1,69 @@
+.card {
+    width: clamp(230px, 13vw, 20rem);
+    display: flex;
+    flex-direction: column;
+    border: 2px black;
+    border-style: outset;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 1rem;
+    height: 430px;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.barraCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contenitoreBtn {
+    display: flex;
+    column-gap: 14px;
+    align-items: center;
+}
+
+.btn {
+    width: 2rem;
+    height: 2rem;
+    background-size: 100% 100%;
+    border-radius: 8px;
+    outline: none;
+    padding: 0px;
+}
+
+.minus {
+    composes: btn;
+    background-image: url(/minus.svg);
+    background-color: #ffffff00;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.plus {
+    composes: btn;
+    background-image: url(/plus.svg);
+    background-color: #ffffff00;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.img {
+    height: 300px;
+    background-size: 100% 100%;
+}
+
+.contenitoreQuantità {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.buy {
+    background-image: url(/cart.svg);
+    background-size: 100% 100%;
+    height: 2rem;
+    width: 2rem;
+    background-color: #fbfbfb00;
+}
