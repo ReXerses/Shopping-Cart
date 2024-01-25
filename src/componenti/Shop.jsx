@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Footer from "./Footer";
 import Card from "./Card";
+import LoadingPage from "./LoadingPage";
 import { useShop } from "./ShopHook";
 import { useContext } from "react";
 import { AppContext } from "./Navbar";
@@ -44,7 +45,7 @@ const Shop = () => {
     };
 
     if(error) return <p>È stato riscontrato un errore nel network.</p>
-    if(loading) return <p>Caricamento...</p>
+    if(loading) return <LoadingPage />
 
     return (
         <>

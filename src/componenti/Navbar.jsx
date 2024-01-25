@@ -20,6 +20,8 @@ const Navbar = () => {
     const [ricerca, setRicerca] = useState('');
     const [categoria, setCategoria] = useState('');
 
+    const [carrello, setCarrello] = useState([]); // stato che gestisce il carrello dell'utente.
+
     const Navigate = useNavigate();
 
     useEffect(() => {
@@ -71,7 +73,6 @@ const Navbar = () => {
     }
 
     const gestisciSubmit = (event) => {
-        console.log(event)
         event.preventDefault(); // Impedisce il comportamento predefinito del form (ricarica la pagina)
         setCategoria('');
         setRicerca(event.target[0].value);
@@ -79,7 +80,7 @@ const Navbar = () => {
     };
 
     return (
-        <AppContext.Provider value={{ isMobile, isLogged, ricerca, categoria, setIsLogged, setUserName, setRicerca, setCategoria }}>
+        <AppContext.Provider value={{ isMobile, isLogged, ricerca, categoria, carrello, setCarrello, setIsLogged, setUserName, setRicerca, setCategoria }}>
         <div className="paginaIntera">
 
 

@@ -1,7 +1,21 @@
 import Footer from "./Footer";
 import stile from '/src/moduli css/OurBrand.module.css';
+import { useState, useEffect } from "react";
+import LoadingPage from "./LoadingPage";
 
 const OurBrand = () => {
+
+    const [immaginiCaricate, setImmaginiCaricate] = useState(false);
+
+    // Simula un caricamento immagini asincrono
+    useEffect(() => {
+        setTimeout(() => {
+        setImmaginiCaricate(true);
+        }, 3000);  //  3 secondi
+    }, []);
+
+    if (!immaginiCaricate) return  (<LoadingPage />)
+
     return (
         <>  
             

@@ -4,7 +4,6 @@ import Navbar from "./componenti/Navbar";
 //import altre pagine
 import Shop from "./componenti/Shop";
 import ErrorPage from "./componenti/ErrorPage";
-import { Children } from "react";
 import OurBrand from "./componenti/OurBrand";
 import LoginPage from "./componenti/LoginPage";
 

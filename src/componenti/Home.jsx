@@ -1,12 +1,25 @@
-import { useContext } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import Carosello from './Carosello'
 import Footer from './Footer'
 import HomeStyle from '/src/moduli css/Home.module.css'
 import { AppContext } from './Navbar'
 import { Link } from 'react-router-dom'
+import LoadingPage from './LoadingPage'
+
 
 function App() {
   const { isMobile, isLogged, setCategoria} = useContext(AppContext);
+
+  const [immaginiCaricate, setImmaginiCaricate] = useState(false);
+
+  // Simula un caricamento immagini asincrono
+  useEffect(() => {
+    setTimeout(() => {
+      setImmaginiCaricate(true);
+    }, 6000);  // 6 secondi
+  }, []);
+
+  if (!immaginiCaricate) return  (<LoadingPage />)
 
   return (// trasformare la prima parte in un componente a se.
     <>
