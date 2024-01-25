@@ -18,6 +18,6 @@ export const useShop = () => {
             .then((response) => setRisultato(response))
             .catch ((error) => setError(error))
             .finally(() => setLoading(false));
-        },[]);
+        },[categoria]);
         return {risultato, error, loading};
 };
