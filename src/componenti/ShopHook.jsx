@@ -11,7 +11,7 @@ export const useShop = () => {
         fetch(`https://fakestoreapi.com/products/${categoria}`, {mode: "cors"})
             .then((response) => {
                 if (response.status >= 400) {
-                    throw new Error ('Server error');
+                    throw new Error (`Server error`);
                 }
                 return response.json();
             })                

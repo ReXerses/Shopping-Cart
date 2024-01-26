@@ -80,14 +80,14 @@
 
 .selezionato {
     border-bottom: 3px solid black;
-    position: fixed;
+    position: absolute;
     text-align: center;
-    animation: selezionato 1s ease-in-out; /* Durata di 1 secondo, accelerazione iniziale ed esalazione */
+    animation: selezionato 1s ease-in-out; 
     animation-delay: 0.1s;
 }
 
 .nonSelezionato{
-    position: fixed;
+    position: absolute;
 }
 
 .nonSelezionato:hover {
@@ -209,4 +209,18 @@
     color: white;
     background: none;
     outline: none;
+}
+
+.elementiNelCarrello {
+    position: relative;
+    right: -20px;
+    top: -17px;
+    padding: 8px;
+    background-color: red;
+    border-radius: 1rem;
+    width: 10px;
+    height: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

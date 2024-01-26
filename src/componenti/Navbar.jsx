@@ -8,7 +8,7 @@ export const AppContext = createContext();
 const Navbar = () => {
     const location = useLocation();
 
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 850);
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 850); // necessaria per il Btn go up.
     const [isMenuOpen, setIsMenuOpen] = useState (false);
     const [isSearchBar, setIsSearchBar] = useState (false);
     const [isUserOpen, setIsUserOpen] = useState (false);
@@ -106,7 +106,11 @@ const Navbar = () => {
                                         )}
                                 </div>
 
-                                <button className={styles.cart}></button>
+                                <button className={styles.cart} onClick={() => Navigate('/cart')}>
+
+                                    {(carrello.length != 0) && <span className={styles.elementiNelCarrello}>{carrello.length}</span>}
+
+                                </button>
                             </div>
 
                             {isMenuOpen && (
@@ -174,7 +178,11 @@ const Navbar = () => {
                                     )}
                             </div>
 
-                            <button className={styles.cart}></button>
+                            <button className={styles.cart} onClick={() => Navigate('/cart')}>
+
+                                {(carrello.length != 0) && <span className={styles.elementiNelCarrello}>{carrello.length}</span>}
+
+                            </button>
                         </div>
                         
                     </nav>

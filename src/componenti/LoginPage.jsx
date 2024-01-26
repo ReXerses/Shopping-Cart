@@ -14,9 +14,9 @@ const LoginPage = () => {
         setIsLogged(true);
         Navigate('/');
     };
+
     return (
         <>
-    
             <div className={stile.contenitoreForm}>
                 <form className={stile.formLogin} onSubmit={handleSubmit}>
 

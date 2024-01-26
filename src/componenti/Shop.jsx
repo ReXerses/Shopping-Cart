@@ -7,11 +7,12 @@ import { useContext } from "react";
 import { AppContext } from "./Navbar";
 import { Link } from "react-router-dom";
 import stile from '/src/moduli css/Shop.module.css';
+import ErrorPage from "./ErrorPage";
 
 const Shop = () => {
 
     const {risultato, error, loading} = useShop();
-    const { ricerca, isLogged, isMobile, setRicerca, setCategoria} = useContext(AppContext);
+    const { ricerca, isLogged, isMobile, setRicerca, setCategoria, categoria} = useContext(AppContext);
     const [categorieAperte, setCategorieAperte] = useState(false);
 
     const [articoliFiltrati, setArticoliFiltrati] = useState([]);
@@ -44,7 +45,7 @@ const Shop = () => {
         setRicerca(event.target[0].value);
     };
 
-    if(error) return <p>È stato riscontrato un errore nel network.</p>
+    if(error) return <ErrorPage error={'NETWORK ERROR'}/>  // Nel caso in cui non si riesca a fare fetch.
     if(loading) return <LoadingPage />
 
     return (
@@ -71,6 +72,10 @@ const Shop = () => {
                             <input type="text" name="search" id="search"   placeholder="Search" autoComplete="off" className={stile.input}/>
                             <button className={stile.searchBtn} ></button>
                     </form>
+                    <div>
+                        {(categoria != '') && <span>{categoria} <button onClick={() => setCategoria('')}>x</button></span> }
+                        {(ricerca != '') && <span>{ricerca} <button onClick={() => setRicerca('')}>x</button></span> }
+                    </div>
 
                         <div>
                             <div className={stile.categorie}>Categorie <button onClick={() => setCategorieAperte(!categorieAperte)} className={(categorieAperte) ? stile.chiudiCategorieBtn : stile.apriCategorieBtn}></button></div>
@@ -93,17 +98,13 @@ const Shop = () => {
                                 </ul>
                             )}
                         </div>
-                
-
-
-                    
                     
 
                 </div>
                 <div className={stile.contenuto}>
 
                     {(articoliFiltrati.length === 0 ) && <span>No result!</span>}
-                    {(loading) && <p>Caricamento...</p>}
+                    {(loading) && <p>Loading...</p>}
 
                     {articoliFiltrati.map((articolo) => <Card articolo={articolo} key={articolo.id} isLogged={isLogged}/>)}
 
